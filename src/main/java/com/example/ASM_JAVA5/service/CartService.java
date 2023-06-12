@@ -91,9 +91,7 @@ public class CartService {
             List<OrderDetail> orderDetails = new ArrayList<>();
             for (CartItem item : cart.getItems()) {
                 double totalPrice = 0.0;
-                    totalPrice += item.getProduct().getPrice() * item.getQuantity();
-
-
+                totalPrice += item.getProduct().getPrice() * item.getQuantity();
                 OrderDetail orderDetail = new OrderDetail();
                 orderDetail.setProduct(item.getProduct());
                 orderDetail.setPrice(item.getProduct().getPrice());

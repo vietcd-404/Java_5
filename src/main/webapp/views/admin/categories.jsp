@@ -21,7 +21,8 @@
 </head>
 <body>
 <%@include file="../layout/header.jsp" %>
-<div class="container mt-3 " >
+<h1 style="margin-top: 120px">Categories</h1>
+<div class="container mt-3 " style="margin-top: 120px">
 
 
         <frm:form action="" method="post" modelAttribute="categories">
@@ -30,11 +31,7 @@
             <frm:input type="text" value="${categoriesList.name}" path="name" class="form-control"/>
             <frm:errors path="name" cssStyle="color: red; font-weight: bold"/>
         </div>
-<%--        <div class="mb-3">--%>
-<%--            <label class="form-label">Status</label>--%>
-<%--            <input type="text" value="${categoriesList.status}" name="status" class="form-control">--%>
 
-<%--        </div>--%>
             <div class="mb-3">
                 <label class="form-label">Status</label>
             <select class="form-select" aria-label="Default select example" name="status">
@@ -42,10 +39,7 @@
                 <option value="0" ${categoriesList.status ==0?"selected": ""}>Hết</option>
             </select>
             </div>
-<%--        <div class="mb-3">--%>
-<%--            <label class="form-label">Address</label>--%>
-<%--            <input type="text" value="${list.address}" name="address" class="form-control">--%>
-<%--        </div>--%>
+
        <div class="col-2">
            <button formaction="/admin/categories/add" type="submit" class="btn btn-primary">Thêm</button>
            <button formaction="/admin/categories/update/${categoriesList.id}" type="submit" class="btn btn-primary">Sửa</button>

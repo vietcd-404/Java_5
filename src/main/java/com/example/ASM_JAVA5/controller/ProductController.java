@@ -1,5 +1,6 @@
 package com.example.ASM_JAVA5.controller;
 
+import com.example.ASM_JAVA5.entity.Account;
 import com.example.ASM_JAVA5.entity.Categories;
 import com.example.ASM_JAVA5.entity.Product;
 import com.example.ASM_JAVA5.service.CategoriesService;
@@ -32,6 +33,7 @@ public class ProductController {
 
     @GetMapping("/view")
     public String view(Model model) {
+        model.addAttribute("account", new Account());
         List<Product> list = productService.getList();
         model.addAttribute("list", list);
         List<Categories> list1 = categoriesService.getList();

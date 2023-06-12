@@ -3,7 +3,9 @@ package com.example.ASM_JAVA5.controller;
 import com.example.ASM_JAVA5.entity.Account;
 import com.example.ASM_JAVA5.entity.Cart;
 import com.example.ASM_JAVA5.entity.Order;
+import com.example.ASM_JAVA5.entity.OrderDetail;
 import com.example.ASM_JAVA5.service.CartService;
+import com.example.ASM_JAVA5.service.OrderDetailService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -22,11 +24,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class CartController {
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private OrderDetailService orderDetailService;
 
     @GetMapping("/cart")
     public String showCart(Model model) {
@@ -63,7 +69,7 @@ public class CartController {
 //
 //        return "/user/checkout";
 
-    
+
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("account") != null) {
             Account account = (Account) session.getAttribute("account");
@@ -78,10 +84,15 @@ public class CartController {
         }
     }
 
+    @GetMapping("/pay")
+    public String pay(Model model){
+        return "/user/suscess";
+    }
+
     @PostMapping("/checkout")
     public String checkout(ServletRequest servletRequest, ServletResponse servletResponse ) throws IOException {
         cartService.checkout(servletRequest,servletResponse);
-        return "redirect:/home";
+        return "redirect:/pay";
     }
 
 }

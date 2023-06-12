@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@include file="../layout/header.jsp" %>
-<div class="row" style="margin: 50px">
+<div class="row" style="margin: 50px" style="margin-top: 120px">
     <div class="col-5">
         <img src="/upload/${product.image}" class="card-img-top" alt="${product.name}">
     </div>

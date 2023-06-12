@@ -13,6 +13,7 @@
 </head>
 <body>
 <%@include file="../layout/header.jsp" %>
+<h1 style="margin-top: 120px">Account</h1>
 <div class="container mt-3" >
     <frm:form action="" method="post" class="row g-3" modelAttribute="account">
         <div class="col-md-3">
@@ -132,7 +133,6 @@
             </table>
         </div>
     </frm:form>
-
 </div>
 <%@include file="../layout/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -168,8 +168,17 @@
 <%--    </div>--%>
 <%--</nav>--%>
 
+<style>
+    .navbar{
+        position: fixed ;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
 
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" style="">
     <div class="container">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -184,6 +193,10 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/user/product/view" style="margin-right: 20px">Shop</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user/order-detail/view" style="margin-right: 20px">Invoice</a>
+                    </li>
+
                     <c:if test="${account.role == 0}">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

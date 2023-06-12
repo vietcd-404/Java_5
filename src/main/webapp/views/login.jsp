@@ -7,11 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-        <link rel="stylesheet" href="/src/main/webapp/css/custom/style.css" />
-        <link rel="stylesheet" href="../css/plugin/bootstrap.min.css" />
-        <link rel="stylesheet" href="/src/main/webapp/css/custom/index.css" />
-        <link rel="stylesheet" href="../assets/font-we/bootstrap-icons.css" />
-        <link rel="stylesheet" href="/src/main/webapp/css/custom/stylecopy.css" />
+<%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/style.css" />--%>
+<%--        <link rel="stylesheet" href="../css/plugin/bootstrap.min.css" />--%>
+<%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/index.css" />--%>
+<%--        <link rel="stylesheet" href="../assets/font-we/bootstrap-icons.css" />--%>
+<%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/stylecopy.css" />--%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <style>
     body {
@@ -79,7 +81,6 @@
 
 </style>
 <body>
-
 <form  action="${pageContext.request.contextPath}/login" method="post">
 <%--    <label for="username">Username:</label>--%>
 <%--    <input type="text" id="username" name="username"><br>--%>
@@ -90,8 +91,12 @@
 <%--    <input type="submit" value="Login">--%>
     <div class="login-container">
         <div class="login-title">Login</div>
-
-            <div class="form-group">
+        <c:if test="${account==null}">
+            <div  class="alert alert-danger" role="alert">
+                    ${message}
+            </div>
+        </c:if>
+        <div class="form-group">
                 <label for="username" class="form-label">Username</label>
 
                 <input type="text" id="username" name="username" class="form-control" placeholder="Username" >
@@ -106,7 +111,7 @@
                     <p class="error" style="color: red; font-weight: bold">Password is required</p>
                 </c:if>
             </div>
-            <button type="submit" class="btn-login">Login</button>
+            <button type="submit"  class="btn-login">Login</button>
 
 
         <div class="login-links">
@@ -116,5 +121,8 @@
     </div>
 
 </form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
 </body>
 </html>

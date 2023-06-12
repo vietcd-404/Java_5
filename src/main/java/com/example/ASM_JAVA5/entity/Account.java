@@ -30,7 +30,7 @@ public class Account {
     @NotBlank(message = "Please enter your's name")
     private String name;
 
-    @NotBlank(message = "Please enter your's avatar")
+//    @NotBlank(message = "Please enter your's avatar")
     private String avatar;
 
     @NotBlank(message = "Please enter your's email")

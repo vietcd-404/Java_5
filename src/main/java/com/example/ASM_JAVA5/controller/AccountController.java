@@ -78,6 +78,12 @@ public class AccountController {
 
     }
 
+    @GetMapping("/demo")
+    public String demo(Model model) {
+        return "demo";
+
+    }
+
 //    @PostMapping("/login")
 //    public String login(@RequestParam("username") String username,
 //                        @RequestParam("pass") String password,

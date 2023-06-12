@@ -18,25 +18,30 @@ public class AuthController {
     @Autowired
     private AccountService accountService;
 
-//    @GetMapping("/")
-//    public String showLoginPage() {
-//        return "login";
-//    }
+    @GetMapping("/")
+    public String showLoginPage(Model model) {
+        model.addAttribute("account", new Account());
+        return "login";
+    }
 
-        @PostMapping("/login")
-        public String login(@RequestParam("username") String username,
-                            @RequestParam("pass") String password,
-                            HttpSession session) {
-            Account account = accountService.login(username, password);
+    @PostMapping("/login")
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("pass") String password,
+                        HttpSession session,Model model) {
+        Account account = accountService.login(username, password);
 
-            if (account != null) {
-                session.setAttribute("account", account);
-                return "redirect:/home";
-            }
-
-                return "login";
-
+        if (account != null) {
+            session.setAttribute("account", account);
+            return "redirect:/home";
         }
+
+            model.addAttribute("message","Tài khoản hoặc mật khẩu sai");
+            return "login";
+
+
+
+
+    }
 
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
@@ -57,12 +62,13 @@ public class AuthController {
 
     @PostMapping("/register")
     public String add(@Valid @ModelAttribute("account") Account account, BindingResult result) {
-            if (result.hasErrors()){
-                return "dangKy";
-            }
+        if (result.hasErrors()) {
+            return "dangKy";
+        }
+        account.setAvatar(null);
         account.setRole(1);
         accountService.insert(account);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/logout")

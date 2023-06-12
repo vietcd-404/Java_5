@@ -2,11 +2,6 @@
 <html>
 <head>
     <title>Title</title>
-<%--    <link rel="stylesheet" href="../css/custom/style.css" />--%>
-<%--    <link rel="stylesheet" href="../css/plugin/bootstrap.min.css" />--%>
-<%--    <link rel="stylesheet" href="../css/custom/index.css" />--%>
-<%--    <link rel="stylesheet" href="../assets/font-we/bootstrap-icons.css" />--%>
-<%--    <link rel="stylesheet" href="../css/custom/stylecopy.css" />--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
@@ -14,7 +9,7 @@
 
 <%@include file="../layout/header.jsp" %>
 
-<div id="carouselExample" class="carousel slide">
+<div id="carouselExample" class="carousel slide" style="margin-top: 120px">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="../../assets/img/slide-01.jpg" class="d-block w-100" alt="...">

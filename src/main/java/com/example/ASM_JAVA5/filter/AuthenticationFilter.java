@@ -37,38 +37,18 @@ public class AuthenticationFilter implements Filter {
         String loginURI = httpRequest.getContextPath() + "/login";
         String registerURI = httpRequest.getContextPath() + "/register";
         String forgotURI = httpRequest.getContextPath() + "/forgot";
+        String adminURI = httpRequest.getContextPath() + "/admin/";
 
-//        System.out.println(httpRequest.getRemoteHost());
-//        System.out.println(httpRequest.getRemotePort());
-//        System.out.println(httpRequest.getRequestURI());
 
         boolean loggedIn = session != null && session.getAttribute("account") != null;
         boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
         boolean registerRequest = httpRequest.getRequestURI().equals(registerURI);
         boolean forgotRequest = httpRequest.getRequestURI().equals(forgotURI);
+        boolean adminRequest = httpRequest.getRequestURI().startsWith(adminURI);
 
 
 
-        if (loggedIn || loginRequest || registerRequest || forgotRequest) {
-//            Account account = (Account) session.getAttribute("account");
-//            Order order = new Order();
-//            order.setAccount(account);
-//            order.setOderDate(new Date());
-//            order.setAddress(order.getAddress());
-//            order.setStatus(order.getStatus());
-//            List<OrderDetail> orderDetails = new ArrayList<>();
-//            for (CartItem item : cart.getItems()) {
-//                OrderDetail orderDetail = new OrderDetail();
-//                orderDetail.setProduct(item.getProduct());
-//                orderDetail.setPrice(item.getProduct().getPrice());
-//                orderDetail.setQuantity(item.getQuantity());
-//                orderDetails.add(orderDetail);
-//            }
-//
-//            order.setOrderDetails(orderDetails);
-//            orderService.insert(order);
-//            cart.clearCart();
-//            session.setAttribute("cart", cart);
+        if (loggedIn || loginRequest || registerRequest || forgotRequest || !adminRequest) {
             filterChain.doFilter(servletRequest, servletResponse);
 
         } else {

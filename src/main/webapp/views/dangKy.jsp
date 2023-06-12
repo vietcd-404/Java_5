@@ -82,7 +82,7 @@
 
 <div class="register-container">
     <div class="login-title">Register</div>
-    <frm:form  method="POST" modelAttribute="account">
+    <frm:form action="/register"  method="POST" modelAttribute="account">
         <div class="form-group">
             <label for="username" class="form-label">Username</label>
             <frm:input type="text" id="username" path="username" class="form-control" placeholder="Username" />
@@ -103,7 +103,7 @@
             <frm:input type="text" id="email" path="email" class="form-control" placeholder="Your Email" />
             <frm:errors path="email" cssStyle="color: red"/>
         </div>
-        <button formaction="/register" type="submit" class="btn-login">Register</button>
+        <button type="submit" class="btn-login">Register</button>
         <div class="login-links">
             <a href="/login">Login</a>
         </div>

@@ -17,6 +17,7 @@
 
 <body>
 <%@include file="../layout/header.jsp" %>
+<h1 style="margin-top: 120px">Product</h1>
 <div class="container mt-3" >
     <form action="" method="post" class="row g-3" enctype="multipart/form-data">
         <div class="col-md-3">

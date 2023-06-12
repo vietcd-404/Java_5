@@ -1,0 +1,112 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/style.css" />--%>
+    <%--        <link rel="stylesheet" href="../css/plugin/bootstrap.min.css" />--%>
+    <%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/index.css" />--%>
+    <%--        <link rel="stylesheet" href="../assets/font-we/bootstrap-icons.css" />--%>
+    <%--        <link rel="stylesheet" href="/src/main/webapp/css/custom/stylecopy.css" />--%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-login:hover {
+        background-color: #0069d9;
+    }
+
+    .login-links {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .login-links a {
+        text-decoration: none;
+        color: #007bff;
+        margin-right: 10px;
+    }
+
+</style>
+<body>
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+
+    if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
+    }
+</script>
+</body>
+</html>

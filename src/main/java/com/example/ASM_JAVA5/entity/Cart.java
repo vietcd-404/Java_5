@@ -31,7 +31,7 @@ public class Cart {
         }
 
         // Nếu chưa có, tạo một CartItem mới và thêm vào giỏ hàng
-        CartItem newItem = new CartItem(product, "ok" ,1,9000);
+        CartItem newItem = new CartItem(product,"ok" ,1,9000);
         items.add(newItem);
     }
 

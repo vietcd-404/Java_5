@@ -53,7 +53,7 @@
                    class="form-control" required/>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Place Order</button>
+        <button type="submit" class="btn btn-primary">Order</button>
     </form>
 </div>
 <%@include file="../layout/footer.jsp" %>

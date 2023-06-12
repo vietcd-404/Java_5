@@ -1,5 +1,6 @@
 package com.example.ASM_JAVA5.controller;
 
+import com.example.ASM_JAVA5.entity.Account;
 import com.example.ASM_JAVA5.entity.Categories;
 import com.example.ASM_JAVA5.service.CategoriesService;
 import jakarta.validation.Valid;
@@ -29,6 +30,7 @@ public class CategoriesController {
 
     @GetMapping("/view")
     public String view(Model model) {
+        model.addAttribute("account", new Account());
         List<Categories> list = categoriesService.getList();
         model.addAttribute("list", list);
         model.addAttribute("categories", new Categories());

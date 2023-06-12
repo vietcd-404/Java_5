@@ -14,7 +14,7 @@
 
 <%@include file="../layout/header.jsp" %>
 
-<h1>Shop</h1>
+<h1 style="margin-top: 120px">Shop</h1>
 <div class="container">
     <div class="row">
         <c:forEach var="list" items="${list}">
@@ -28,7 +28,7 @@
                         <div style="text-align: center">
                            <form action="/cart/add" method="post">
                                <input type="hidden" name="productId" value="${list.id}" />
-                               <button type="submit" class="btn btn-primary">Add to cart</button>
+                               <button id="liveToastBtn"  type="submit" class="btn btn-primary">Add to cart</button>
                            </form>
                         </div>
                     </div>
@@ -59,11 +59,49 @@
             </li>
         </ul>
     </nav>
+
+</div>
+<%--<div class="toast-container position-fixed bottom-0 end-0 p-3">--%>
+<%--    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">--%>
+<%--        <div class="toast-header">--%>
+<%--            <strong class="me-auto">Bootstrap</strong>--%>
+<%--            <small>11 mins ago</small>--%>
+<%--            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>--%>
+<%--        </div>--%>
+<%--        <div class="toast-body">--%>
+<%--            Hello, world! This is a toast message.--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
+    <div class="d-flex">
+        <div class="toast-body">
+            Sản phẩm đã được thêm vào giỏ hàng.
+        </div>
+        <button type="button" class="btn-close ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
 </div>
 <%@include file="../layout/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+<script>
+    function showToast() {
+        // Tạo một đối tượng toast mới
+        var toast = new bootstrap.Toast(document.getElementById('liveToast'));
 
+        // Hiển thị toast
+        toast.show();
+    }
+
+    // Gắn sự kiện click cho nút "Add to cart"
+    document.getElementById('liveToastBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+
+        // Gọi hàm showToast để hiển thị thông báo
+        showToast();
+    });
+</script>
 </body>
 </html>

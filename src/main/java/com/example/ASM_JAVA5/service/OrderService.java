@@ -1,5 +1,6 @@
 package com.example.ASM_JAVA5.service;
 
+import com.example.ASM_JAVA5.entity.Categories;
 import com.example.ASM_JAVA5.entity.Order;
 import com.example.ASM_JAVA5.repository.OrderRepository;
 import com.example.ASM_JAVA5.service.serviceImpl.OrderServiceImpl;
@@ -33,7 +34,7 @@ public class OrderService implements OrderServiceImpl {
 
     @Override
     public Order update(Integer id, Order order) {
-        return null;
+        return orderRepository.save(order);
     }
 
     @Override
